@@ -181,6 +181,11 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
 
 - (void)fd_setupViewControllerBasedNavigationBarAppearanceIfNeeded:(UIViewController *)appearingViewController
 {
+    NSString *className = [NSString stringWithUTF8String:class_getName([appearingViewController class])];
+    if ([className isEqualToString:@"CKSMSComposeController"]) {
+        return;
+    }
+    
     if (!self.fd_viewControllerBasedNavigationBarAppearanceEnabled) {
         return;
     }
