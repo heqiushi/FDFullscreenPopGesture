@@ -182,7 +182,7 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
 - (void)fd_setupViewControllerBasedNavigationBarAppearanceIfNeeded:(UIViewController *)appearingViewController
 {
     NSString *className = [NSString stringWithUTF8String:class_getName([appearingViewController class])];
-    if ([className isEqualToString:@"CKSMSComposeController"]) {
+    if ([className isEqualToString:@"CKSMSComposeController"] || [className isEqualToString:@"TWTRWebAuthenticationViewController"]) {
         return;
     }
     
